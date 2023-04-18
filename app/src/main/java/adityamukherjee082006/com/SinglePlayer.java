@@ -1,17 +1,18 @@
 package adityamukherjee082006.com;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class SinglePlayer extends AppCompatActivity implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SinglePlayer extends AppCompatActivity implements View.OnClickListener {
     TextView singleplayertext;
     ImageButton musicButton5;
     MediaPlayer music;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

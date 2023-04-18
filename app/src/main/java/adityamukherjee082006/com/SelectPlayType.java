@@ -11,11 +11,11 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SelectPlayType extends AppCompatActivity implements View.OnClickListener {
+    static int position;
     Button pvpButton;
     Button pvcButton;
     ImageButton musicButton4;
     MediaPlayer music;
-    static int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class SelectPlayType extends AppCompatActivity implements View.OnClickLis
         music = MediaPlayer.create(this, R.raw.music);
         music.seekTo(Home.position);
         music.start();
-        music.setLooping(true);
+        musicButton4.setImageResource(R.drawable.sound_on);
     }
 
     @Override
@@ -48,11 +48,12 @@ public class SelectPlayType extends AppCompatActivity implements View.OnClickLis
             openMultiPlayer();
             music.stop();
             position = music.getCurrentPosition();
-        }
-        else if (view.getId() == R.id.pvcButton) {
+            musicButton4.setImageResource(R.drawable.sound_off);
+        } else if (view.getId() == R.id.pvcButton) {
             openSelectDifficulty();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton4.setImageResource(R.drawable.sound_off);
         }
     }
 
