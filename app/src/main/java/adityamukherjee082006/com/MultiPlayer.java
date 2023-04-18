@@ -1,142 +1,122 @@
 package adityamukherjee082006.com;
 
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MultiPlayer extends AppCompatActivity implements View.OnClickListener {
+    static ImageButton emptyImage;
     TextView result;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
+    ImageButton imageButton1;
+    ImageButton imageButton2;
+    ImageButton imageButton3;
+    ImageButton imageButton4;
+    ImageButton imageButton5;
+    ImageButton imageButton6;
+    ImageButton imageButton7;
+    ImageButton imageButton8;
+    ImageButton imageButton9;
     boolean b = true;
     boolean check;
     ImageButton musicButton2;
     MediaPlayer music;
 
-    public static boolean gameOver(Button button1, Button button2, Button button3, Button button4,
-                                   Button button5, Button button6, Button button7, Button button8,
-                                   Button button9) {
-        if (button1.getText().equals(""))
-            return false;
-        if (button2.getText().equals(""))
-            return false;
-        if (button3.getText().equals(""))
-            return false;
-        if (button4.getText().equals(""))
-            return false;
-        if (button5.getText().equals(""))
-            return false;
-        if (button6.getText().equals(""))
-            return false;
-        if (button7.getText().equals(""))
-            return false;
-        if (button8.getText().equals(""))
-            return false;
-        return !button9.getText().equals("");
-    }
-
-    public static boolean hasWinner(Button button1, Button button2, Button button3, Button button4,
-                                    Button button5, Button button6, Button button7, Button button8,
-                                    Button button9) {
+    public static boolean hasWinner(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4,
+                                    ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8,
+                                    ImageButton imageButton9) {
         //checks rows
-        if (button1.getText().equals(button2.getText()) && button2.getText().equals(button3.getText())
-                && !button3.getText().equals(""))
+        if (imageButton1.getDrawable().equals(imageButton2.getDrawable()) && imageButton2.getDrawable().equals(imageButton3.getDrawable())
+                && !imageButton3.getDrawable().equals(emptyImage.getDrawable()))
             return true;
-        else if (button4.getText().equals(button5.getText()) && button5.getText().equals(button6.getText())
-                && !button6.getText().equals(""))
+        else if (imageButton4.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton6.getDrawable())
+                && !imageButton6.getDrawable().equals(emptyImage.getDrawable()))
             return true;
-        else if (button7.getText().equals(button8.getText()) && button8.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
+        else if (imageButton7.getDrawable().equals(imageButton8.getDrawable()) && imageButton8.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
             return true;
             //checks columns
-        else if (button1.getText().equals(button4.getText()) && button4.getText().equals(button7.getText())
-                && !button7.getText().equals(""))
+        else if (imageButton1.getDrawable().equals(imageButton4.getDrawable()) && imageButton4.getDrawable().equals(imageButton7.getDrawable())
+                && !imageButton7.getDrawable().equals(emptyImage.getDrawable()))
             return true;
-        else if (button2.getText().equals(button5.getText()) && button5.getText().equals(button8.getText())
-                && !button8.getText().equals(""))
+        else if (imageButton2.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton8.getDrawable())
+                && !imageButton8.getDrawable().equals(emptyImage.getDrawable()))
             return true;
-        else if (button3.getText().equals(button6.getText()) && button6.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
+        else if (imageButton3.getDrawable().equals(imageButton6.getDrawable()) && imageButton6.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
             return true;
             //checks diagonals
-        else if (button1.getText().equals(button5.getText()) && button5.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
+        else if (imageButton1.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
             return true;
         else
-            return button3.getText().equals(button5.getText()) && button5.getText().equals(button7.getText())
-                    && !button7.getText().equals("");
+            return imageButton3.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton7.getDrawable())
+                    && !imageButton7.getDrawable().equals(emptyImage.getDrawable());
     }
 
-    public static String getWinner(Button button1, Button button2, Button button3, Button button4,
-                                   Button button5, Button button6, Button button7, Button button8,
-                                   Button button9) {
+    public static Drawable getWinner(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4,
+                                     ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8,
+                                     ImageButton imageButton9) {
         //checks rows
-        if (button1.getText().equals(button2.getText()) && button2.getText().equals(button3.getText())
-                && !button3.getText().equals(""))
-            return (String) button3.getText();
-        else if (button4.getText().equals(button5.getText()) && button5.getText().equals(button6.getText())
-                && !button6.getText().equals(""))
-            return (String) button6.getText();
-        else if (button7.getText().equals(button8.getText()) && button8.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
-            return (String) button9.getText();
+        if (imageButton1.getDrawable().equals(imageButton2.getDrawable()) && imageButton2.getDrawable().equals(imageButton3.getDrawable())
+                && !imageButton3.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton3.getDrawable();
+        else if (imageButton4.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton6.getDrawable())
+                && !imageButton6.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton6.getDrawable();
+        else if (imageButton7.getDrawable().equals(imageButton8.getDrawable()) && imageButton8.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton9.getDrawable();
             //checks columns
-        else if (button1.getText().equals(button4.getText()) && button4.getText().equals(button7.getText())
-                && !button7.getText().equals(""))
-            return (String) button7.getText();
-        else if (button2.getText().equals(button5.getText()) && button5.getText().equals(button8.getText())
-                && !button8.getText().equals(""))
-            return (String) button8.getText();
-        else if (button3.getText().equals(button6.getText()) && button6.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
-            return (String) button9.getText();
+        else if (imageButton1.getDrawable().equals(imageButton4.getDrawable()) && imageButton4.getDrawable().equals(imageButton7.getDrawable())
+                && !imageButton7.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton7.getDrawable();
+        else if (imageButton2.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton8.getDrawable())
+                && !imageButton8.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton8.getDrawable();
+        else if (imageButton3.getDrawable().equals(imageButton6.getDrawable()) && imageButton6.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton9.getDrawable();
             //checks diagonals
-        else if (button1.getText().equals(button5.getText()) && button5.getText().equals(button9.getText())
-                && !button9.getText().equals(""))
-            return (String) button9.getText();
-        else if (button3.getText().equals(button5.getText()) && button5.getText().equals(button7.getText())
-                && !button7.getText().equals(""))
-            return (String) button7.getText();
-        return "";
+        else if (imageButton1.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton9.getDrawable())
+                && !imageButton9.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton9.getDrawable();
+        else if (imageButton3.getDrawable().equals(imageButton5.getDrawable()) && imageButton5.getDrawable().equals(imageButton7.getDrawable())
+                && !imageButton7.getDrawable().equals(emptyImage.getDrawable()))
+            return imageButton7.getDrawable();
+        return emptyImage.getDrawable();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_player);
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
-        button5 = findViewById(R.id.button5);
-        button6 = findViewById(R.id.button6);
-        button7 = findViewById(R.id.button7);
-        button8 = findViewById(R.id.button8);
-        button9 = findViewById(R.id.button9);
+        imageButton1 = (ImageButton) findViewById(R.id.imageButton1);
+        imageButton2 = (ImageButton) findViewById(R.id.imageButton2);
+        imageButton3 = (ImageButton) findViewById(R.id.imageButton3);
+        imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+        imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
+        imageButton6 = (ImageButton) findViewById(R.id.imageButton6);
+        imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
+        imageButton8 = (ImageButton) findViewById(R.id.imageButton8);
+        imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 
+        emptyImage = (ImageButton) findViewById(R.id.emptyImage);
         result = findViewById(R.id.textView);
 
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
-        button5.setOnClickListener(this);
-        button6.setOnClickListener(this);
-        button7.setOnClickListener(this);
-        button8.setOnClickListener(this);
-        button9.setOnClickListener(this);
+        imageButton1.setOnClickListener(this);
+        imageButton2.setOnClickListener(this);
+        imageButton3.setOnClickListener(this);
+        imageButton4.setOnClickListener(this);
+        imageButton5.setOnClickListener(this);
+        imageButton6.setOnClickListener(this);
+        imageButton7.setOnClickListener(this);
+        imageButton8.setOnClickListener(this);
+        imageButton9.setOnClickListener(this);
         musicButton2 = (ImageButton) findViewById(R.id.musicButton2);
         musicButton2.setOnClickListener(this);
         music = MediaPlayer.create(this, R.raw.music);
@@ -157,72 +137,98 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
             }
         }
         if (check) {
-            button1.setEnabled(false);
-            button2.setEnabled(false);
-            button3.setEnabled(false);
-            button4.setEnabled(false);
-            button5.setEnabled(false);
-            button6.setEnabled(false);
-            button7.setEnabled(false);
-            button8.setEnabled(false);
-            button9.setEnabled(false);
+            imageButton1.setEnabled(false);
+            imageButton2.setEnabled(false);
+            imageButton3.setEnabled(false);
+            imageButton4.setEnabled(false);
+            imageButton5.setEnabled(false);
+            imageButton6.setEnabled(false);
+            imageButton7.setEnabled(false);
+            imageButton8.setEnabled(false);
+            imageButton9.setEnabled(false);
             return;
         }
         switch (view.getId()) {
-            case R.id.button1:
-                button1.setText(b ? "X" : "O");
+            case R.id.imageButton1:
+                imageButton1.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button1.setEnabled(false);
+                imageButton1.setEnabled(false);
                 break;
-            case R.id.button2:
-                button2.setText(b ? "X" : "O");
+            case R.id.imageButton2:
+                imageButton2.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button2.setEnabled(false);
+                imageButton2.setEnabled(false);
                 break;
-            case R.id.button3:
-                button3.setText(b ? "X" : "O");
+            case R.id.imageButton3:
+                imageButton3.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button3.setEnabled(false);
+                imageButton3.setEnabled(false);
                 break;
-            case R.id.button4:
-                button4.setText(b ? "X" : "O");
+            case R.id.imageButton4:
+                imageButton4.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button4.setEnabled(false);
+                imageButton4.setEnabled(false);
                 break;
-            case R.id.button5:
-                button5.setText(b ? "X" : "O");
+            case R.id.imageButton5:
+                imageButton5.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button5.setEnabled(false);
+                imageButton5.setEnabled(false);
                 break;
-            case R.id.button6:
-                button6.setText(b ? "X" : "O");
+            case R.id.imageButton6:
+                imageButton6.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button6.setEnabled(false);
+                imageButton6.setEnabled(false);
                 break;
-            case R.id.button7:
-                button7.setText(b ? "X" : "O");
+            case R.id.imageButton7:
+                imageButton7.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button7.setEnabled(false);
+                imageButton7.setEnabled(false);
                 break;
-            case R.id.button8:
-                button8.setText(b ? "X" : "O");
+            case R.id.imageButton8:
+                imageButton8.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button8.setEnabled(false);
+                imageButton8.setEnabled(false);
                 break;
-            case R.id.button9:
-                button9.setText(b ? "X" : "O");
+            case R.id.imageButton9:
+                imageButton9.setImageResource(b ? R.drawable.x : R.drawable.o);
                 b = !b;
-                button9.setEnabled(false);
+                imageButton9.setEnabled(false);
                 break;
         }
-        if (hasWinner(button1, button2, button3, button4, button5, button6, button7, button8,
-                button9)) {
-            result.setText(getWinner(button1, button2, button3, button4, button5, button6, button7,
-                    button8, button9) + " Wins!");
+        if (hasWinner(imageButton1, imageButton2, imageButton3, imageButton4, imageButton5, imageButton6, imageButton7, imageButton8,
+                imageButton9)) {
+            if (getWinner(imageButton1, imageButton2, imageButton3, imageButton4, imageButton5, imageButton6, imageButton7,
+                    imageButton8, imageButton9).equals(R.drawable.x))
+                result.setText("X Wins!");
+            else
+                result.setText("O Wins!");
             check = true;
-        } else if (gameOver(button1, button2, button3, button4, button5, button6, button7, button8,
-                button9)) {
-            result.setText("Game is a Draw");
         }
+//        if (gameover(imageButton1, imageButton2, imageButton3, imageButton4, imageButton5, imageButton6, imageButton7, imageButton8, imageButton9)) {
+//            result.setText("Draw!");
+//            check = true;
+//        }
     }
+
+//    public boolean gameover(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8, ImageButton imageButton9) {
+//        if (imageButton1.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton2.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton3.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton4.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton5.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton6.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton7.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton8.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        if (imageButton9.getDrawable().equals(emptyImage.getDrawable()))
+//            return false;
+//        return true;
+//    }
 }

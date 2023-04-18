@@ -1,7 +1,5 @@
 package adityamukherjee082006.com;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,22 +7,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class SelectDifficulty extends AppCompatActivity implements View.OnClickListener {
-    Button easy,medium,hard,impossible;
+    static int position;
+    Button easy, medium, hard, impossible;
     ImageButton musicButton3;
     MediaPlayer music;
-    static int position;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_difficulty);
-        easy=findViewById(R.id.easy);
+        easy = findViewById(R.id.easy);
         easy.setOnClickListener(this);
-        medium=findViewById(R.id.medium);
+        medium = findViewById(R.id.medium);
         medium.setOnClickListener(this);
-        hard=findViewById(R.id.hard);
+        hard = findViewById(R.id.hard);
         hard.setOnClickListener(this);
-        impossible=findViewById(R.id.impossible);
+        impossible = findViewById(R.id.impossible);
         impossible.setOnClickListener(this);
         musicButton3 = (ImageButton) findViewById(R.id.musicButton3);
         musicButton3.setOnClickListener(this);
@@ -45,34 +46,34 @@ public class SelectDifficulty extends AppCompatActivity implements View.OnClickL
                 musicButton3.setImageResource(R.drawable.sound_on);
             }
         }
-        if(view.getId()==R.id.easy)
-        {
+        if (view.getId() == R.id.easy) {
             openSinglePlayer();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton3.setImageResource(R.drawable.sound_off);
         }
-        if(view.getId()==R.id.medium)
-        {
+        if (view.getId() == R.id.medium) {
             openSinglePlayer();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton3.setImageResource(R.drawable.sound_off);
         }
-        if(view.getId()==R.id.hard)
-        {
+        if (view.getId() == R.id.hard) {
             openSinglePlayer();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton3.setImageResource(R.drawable.sound_off);
         }
-        if(view.getId()==R.id.impossible)
-        {
+        if (view.getId() == R.id.impossible) {
             openSinglePlayer();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton3.setImageResource(R.drawable.sound_off);
         }
     }
-    public void openSinglePlayer()
-    {
-        Intent intent=new Intent(this,SinglePlayer.class);
+
+    public void openSinglePlayer() {
+        Intent intent = new Intent(this, SinglePlayer.class);
         startActivity(intent);
     }
 }

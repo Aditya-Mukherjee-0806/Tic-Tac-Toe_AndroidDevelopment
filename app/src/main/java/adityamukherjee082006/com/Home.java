@@ -11,11 +11,11 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
+    static int position;
     Button playButton;
     ImageView tictactoe;
     MediaPlayer music;
     ImageButton musicButton;
-    static int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             openSelectPlayType();
             music.stop();
             position = music.getCurrentPosition();
+            musicButton.setImageResource(R.drawable.sound_off);
         }
         if (view.getId() == R.id.musicButton) {
             if (music.isPlaying()) {
