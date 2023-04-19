@@ -19,6 +19,7 @@ public class SelectDifficulty extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_difficulty);
+        //initializing all the buttons
         easy = findViewById(R.id.easy);
         easy.setOnClickListener(this);
         medium = findViewById(R.id.medium);
@@ -37,6 +38,7 @@ public class SelectDifficulty extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+        //if music is on then turn it off and vice versa
         if (view.getId() == R.id.musicButton3) {
             if (music.isPlaying()) {
                 music.pause();
@@ -46,6 +48,7 @@ public class SelectDifficulty extends AppCompatActivity implements View.OnClickL
                 musicButton3.setImageResource(R.drawable.sound_on);
             }
         }
+        //if any difficulty is clicked then open that difficulty
         if (view.getId() == R.id.easy) {
             openSinglePlayer();
             music.stop();
