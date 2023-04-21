@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SinglePlayer extends AppCompatActivity implements View.OnClickListener {
-    TextView singleplayertext;
+    TextView singlePlayerText;
     ImageButton musicButton5;
     MediaPlayer music;
 
@@ -17,13 +17,16 @@ public class SinglePlayer extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player_page);
-        singleplayertext = (TextView) findViewById(R.id.singleplayertext);
-        musicButton5 = (ImageButton) findViewById(R.id.musicButton5);
-        musicButton5.setOnClickListener(this);
+        //initializes and sets single player text to the selected difficulty level
+        singlePlayerText = (TextView) findViewById(R.id.singleplayertext);
+        singlePlayerText.setText(SelectDifficulty.difficultyLevel.getText());
+        //sets music and music button
         music = MediaPlayer.create(this, R.raw.music);
         music.seekTo(SelectDifficulty.position);
         music.start();
         music.setLooping(true);
+        musicButton5 = (ImageButton) findViewById(R.id.musicButton5);
+        musicButton5.setOnClickListener(this);
     }
 
     @Override

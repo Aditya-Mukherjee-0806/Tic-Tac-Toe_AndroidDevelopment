@@ -16,53 +16,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sound_on" />
 
-    <Button
-        android:id="@+id/easy"
+    <TextView
+        android:id="@+id/difficultyLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="177dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="174dp"
         android:text="Easy"
-        app:layout_constraintBottom_toTopOf="@+id/medium"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/medium"
-        android:layout_width="wrap_content"
+    <SeekBar
+        android:id="@+id/seekBarDiscrete"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginBottom="34dp"
-        android:text="Medium"
-        app:layout_constraintBottom_toTopOf="@+id/hard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/hard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="43dp"
-        android:text="Hard"
-        app:layout_constraintBottom_toTopOf="@+id/impossible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/impossible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginBottom="251dp"
-        android:text="Impossible"
+        android:layout_marginBottom="320dp"
+        android:max="3"
         app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="162dp"
+        android:text="OK"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarDiscrete" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

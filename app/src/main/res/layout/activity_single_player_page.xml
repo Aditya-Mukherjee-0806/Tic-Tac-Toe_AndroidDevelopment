@@ -20,11 +20,11 @@
         android:id="@+id/singleplayertext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="352dp"
-        android:text="SINGLE PLAYER PAGE"
-        android:textSize="20sp"
+        android:layout_marginStart="205dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="346dp"
+        android:textSize="30sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
