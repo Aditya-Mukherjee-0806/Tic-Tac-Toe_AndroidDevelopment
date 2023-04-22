@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SinglePlayer">
 
-    <ImageButton
-        android:id="@+id/musicButton5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sound_on" />
-
     <TextView
         android:id="@+id/singleplayertext"
         android:layout_width="wrap_content"
@@ -24,8 +14,21 @@
         android:layout_marginEnd="206dp"
         android:layout_marginBottom="346dp"
         android:textSize="30sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/music_button"
+        android:checked="true"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

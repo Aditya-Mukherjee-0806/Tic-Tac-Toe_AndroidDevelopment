@@ -1,17 +1,16 @@
 package adityamukherjee082006.com;
 
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SinglePlayer extends AppCompatActivity implements View.OnClickListener {
+public class SinglePlayer extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     TextView singlePlayerText;
-    ImageButton musicButton5;
-    MediaPlayer music;
+    ToggleButton toggleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,25 +19,14 @@ public class SinglePlayer extends AppCompatActivity implements View.OnClickListe
         //initializes and sets single player text to the selected difficulty level
         singlePlayerText = (TextView) findViewById(R.id.singleplayertext);
         singlePlayerText.setText(SelectDifficulty.difficultyLevel.getText());
-        //sets music and music button
-        music = MediaPlayer.create(this, R.raw.music);
-        music.seekTo(SelectDifficulty.position);
-        music.start();
-        music.setLooping(true);
-        musicButton5 = (ImageButton) findViewById(R.id.musicButton5);
-        musicButton5.setOnClickListener(this);
+        //link toggleButton to its xml id and sets OnCheckedChangeListener
+        toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+        toggleButton.setChecked(SelectDifficulty.toggleButton.isChecked());
+        toggleButton.setOnCheckedChangeListener(this);
     }
 
     @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.musicButton5) {
-            if (music.isPlaying()) {
-                music.pause();
-                musicButton5.setImageResource(R.drawable.sound_off);
-            } else {
-                music.start();
-                musicButton5.setImageResource(R.drawable.sound_on);
-            }
-        }
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        startService(new Intent(this, MusicService.class));
     }
 }
