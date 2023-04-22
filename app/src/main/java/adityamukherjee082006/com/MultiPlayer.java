@@ -1,16 +1,18 @@
 package adityamukherjee082006.com;
 
-import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MultiPlayer extends AppCompatActivity implements View.OnClickListener {
+public class MultiPlayer extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     static ImageButton emptyImage;
+    ToggleButton toggleButton;
     TextView result;
     ImageButton imageButton1;
     ImageButton imageButton2;
@@ -23,8 +25,6 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
     ImageButton imageButton9;
     boolean b = true;
     boolean check;
-    ImageButton musicButton2;
-    MediaPlayer music;
 
 //    public static boolean hasWinner(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4,
 //                                    ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8,
@@ -117,25 +117,14 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
         imageButton7.setOnClickListener(this);
         imageButton8.setOnClickListener(this);
         imageButton9.setOnClickListener(this);
-        musicButton2 = (ImageButton) findViewById(R.id.musicButton2);
-        musicButton2.setOnClickListener(this);
-        music = MediaPlayer.create(this, R.raw.music);
-        music.seekTo(SelectPlayType.position);
-        music.start();
-        music.setLooping(true);
+        //link toggleButton to its xml id and sets OnCheckedChangeListener
+        toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+        toggleButton.setChecked(SelectPlayType.toggleButton.isChecked());
+        toggleButton.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.musicButton2) {
-            if (music.isPlaying()) {
-                music.pause();
-                musicButton2.setImageResource(R.drawable.sound_off);
-            } else {
-                music.start();
-                musicButton2.setImageResource(R.drawable.sound_on);
-            }
-        }
 //        if (check) {
 //            imageButton1.setEnabled(false);
 //            imageButton2.setEnabled(false);
@@ -211,6 +200,7 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
 //        }
     }
 
+
 //    public boolean gameOver(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3, ImageButton imageButton4, ImageButton imageButton5, ImageButton imageButton6, ImageButton imageButton7, ImageButton imageButton8, ImageButton imageButton9) {
 //        if (imageButton1.getDrawable().equals(emptyImage.getDrawable()))
 //            return false;
@@ -232,4 +222,9 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
 //            return false;
 //        return true;
 //    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        startService(new Intent(this, MusicService.class));
+    }
 }
