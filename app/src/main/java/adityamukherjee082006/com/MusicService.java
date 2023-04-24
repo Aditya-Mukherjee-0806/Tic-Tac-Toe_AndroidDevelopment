@@ -25,10 +25,11 @@ public class MusicService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (music.isPlaying())
+        if (music.isPlaying()) {
             music.pause();
-        else
+        } else {
             music.start();
+        }
         return START_STICKY;
     }
 

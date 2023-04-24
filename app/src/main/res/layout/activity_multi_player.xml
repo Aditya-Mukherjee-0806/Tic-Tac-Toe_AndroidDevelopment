@@ -40,7 +40,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="50dp"
         android:layout_height="64dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="47dp"
         android:layout_marginTop="215dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="48dp"
@@ -85,7 +85,7 @@
         android:id="@+id/imageButton6"
         android:layout_width="50dp"
         android:layout_height="64dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="47dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="54dp"
@@ -130,7 +130,7 @@
         android:id="@+id/imageButton9"
         android:layout_width="50dp"
         android:layout_height="64dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="47dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="232dp"
@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
         android:layout_marginEnd="92dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="600dp"
         android:textAlignment="center"
         android:textSize="35sp"
         android:visibility="visible"
@@ -200,16 +200,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageButton
-        android:id="@+id/emptyImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/empty_image" />
-
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="60dp"
@@ -222,4 +212,30 @@
         android:textOn=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="79dp"
+        android:text="Play Again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/back_home_button" />
+
+    <ImageButton
+        android:id="@+id/back_home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="79dp"
+        android:background="@null"
+        app:srcCompat="@drawable/back_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reset"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
