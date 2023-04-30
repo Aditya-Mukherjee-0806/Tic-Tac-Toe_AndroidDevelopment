@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SinglePlayer extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     TextView singlePlayerText;
     ToggleButton toggleButton;
+    boolean isGoingToBackground = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +29,29 @@ public class SinglePlayer extends AppCompatActivity implements CompoundButton.On
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         startService(new Intent(this, MusicService.class));
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        // User has left the app
+        //isGoingToBackground = true;
+    }
+
+    public void onBackPressed() {
+        if (isTaskRoot()) {
+            startService(new Intent(this, MusicService.class));
+        } else
+            super.onBackPressed();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Check if the app is going to the background
+        if (isGoingToBackground) {
+            // App is going to the background (home button or recent apps button)
+            startService(new Intent(this, MusicService.class));
+        }
     }
 }

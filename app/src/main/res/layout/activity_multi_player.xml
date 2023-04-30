@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_multi_player"
     tools:context=".MultiPlayer">
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="215dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="48dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toStartOf="@+id/divider3"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,13 +24,13 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="215dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="48dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
         app:layout_constraintStart_toEndOf="@+id/divider3"
@@ -38,13 +39,13 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="215dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="48dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider4"
@@ -53,13 +54,13 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="54dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toStartOf="@+id/divider3"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,13 +69,13 @@
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="54dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
         app:layout_constraintStart_toEndOf="@+id/divider3"
@@ -83,13 +84,13 @@
 
     <ImageButton
         android:id="@+id/imageButton6"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="54dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider4"
@@ -98,13 +99,13 @@
 
     <ImageButton
         android:id="@+id/imageButton7"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="232dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/divider3"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,13 +114,13 @@
 
     <ImageButton
         android:id="@+id/imageButton8"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="232dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
         app:layout_constraintStart_toEndOf="@+id/divider3"
@@ -128,13 +129,13 @@
 
     <ImageButton
         android:id="@+id/imageButton9"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="232dp"
-        android:background="@null"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider4"
@@ -187,6 +188,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginBottom="176dp"
         android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -197,6 +199,7 @@
         android:layout_marginEnd="140dp"
         android:layout_marginBottom="176dp"
         android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -234,8 +237,8 @@
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="79dp"
         android:background="@null"
-        app:srcCompat="@drawable/back_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/reset"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/back_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>

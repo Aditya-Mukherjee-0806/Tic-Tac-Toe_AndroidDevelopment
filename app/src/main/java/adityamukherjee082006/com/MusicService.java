@@ -27,7 +27,9 @@ public class MusicService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (music.isPlaying()) {
             music.pause();
+            //musicPosition.setPosition(music.getCurrentPosition());
         } else {
+            //music.seekTo(musicPosition.getPosition());
             music.start();
         }
         return START_STICKY;

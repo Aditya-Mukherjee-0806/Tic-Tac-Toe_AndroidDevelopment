@@ -15,6 +15,7 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
     static TextView result;
     static char[] input = new char[9];
     static ToggleButton toggleButton;
+    static boolean turn = true;
     ImageButton imageButton1;
     ImageButton imageButton2;
     ImageButton imageButton3;
@@ -26,7 +27,7 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
     ImageButton imageButton9;
     Button reset;
     ImageButton backHome;
-    boolean b = true;
+    boolean isGoingToBackground = false;
 
     public static void resetGame(ImageButton imageButton1, ImageButton imageButton2, ImageButton imageButton3,
                                  ImageButton imageButton4, ImageButton imageButton5, ImageButton imageButton6,
@@ -52,6 +53,7 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
         for (int i = 0; i < 9; i++)
             input[i] = ' ';
         result.setText("");
+        turn = true;
     }
 
     @Override
@@ -67,6 +69,7 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
         imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
         imageButton8 = (ImageButton) findViewById(R.id.imageButton8);
         imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
+
         imageButton1.setOnClickListener(this);
         imageButton2.setOnClickListener(this);
         imageButton3.setOnClickListener(this);
@@ -95,57 +98,57 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
         //checks which button was pressed, changes image to X or O, and makes the button disabled
         switch (view.getId()) {
             case R.id.imageButton1:
-                imageButton1.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[0] = b ? 'x' : 'o';
-                b = !b;
+                imageButton1.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[0] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton1.setEnabled(false);
                 break;
             case R.id.imageButton2:
-                imageButton2.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[1] = b ? 'x' : 'o';
-                b = !b;
+                imageButton2.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[1] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton2.setEnabled(false);
                 break;
             case R.id.imageButton3:
-                imageButton3.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[2] = b ? 'x' : 'o';
-                b = !b;
+                imageButton3.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[2] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton3.setEnabled(false);
                 break;
             case R.id.imageButton4:
-                imageButton4.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[3] = b ? 'x' : 'o';
-                b = !b;
+                imageButton4.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[3] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton4.setEnabled(false);
                 break;
             case R.id.imageButton5:
-                imageButton5.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[4] = b ? 'x' : 'o';
-                b = !b;
+                imageButton5.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[4] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton5.setEnabled(false);
                 break;
             case R.id.imageButton6:
-                imageButton6.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[5] = b ? 'x' : 'o';
-                b = !b;
+                imageButton6.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[5] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton6.setEnabled(false);
                 break;
             case R.id.imageButton7:
-                imageButton7.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[6] = b ? 'x' : 'o';
-                b = !b;
+                imageButton7.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[6] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton7.setEnabled(false);
                 break;
             case R.id.imageButton8:
-                imageButton8.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[7] = b ? 'x' : 'o';
-                b = !b;
+                imageButton8.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[7] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton8.setEnabled(false);
                 break;
             case R.id.imageButton9:
-                imageButton9.setImageResource(b ? R.drawable.x : R.drawable.o);
-                input[8] = b ? 'x' : 'o';
-                b = !b;
+                imageButton9.setImageResource(turn ? R.drawable.x : R.drawable.o);
+                input[8] = turn ? 'x' : 'o';
+                turn = !turn;
                 imageButton9.setEnabled(false);
                 break;
             case R.id.reset:
@@ -207,5 +210,29 @@ public class MultiPlayer extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         startService(new Intent(this, MusicService.class));
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        // User has left the app
+        //isGoingToBackground = true;
+    }
+
+    public void onBackPressed() {
+        if (isTaskRoot())
+            startService(new Intent(this, MusicService.class));
+        else
+            super.onBackPressed();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Check if the app is going to the background
+        if (isGoingToBackground) {
+            // App is going to the background (home button or recent apps button)
+            startService(new Intent(this, MusicService.class));
+        }
     }
 }

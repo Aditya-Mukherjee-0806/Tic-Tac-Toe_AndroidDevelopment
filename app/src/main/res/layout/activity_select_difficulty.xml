@@ -4,18 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_select_difficulty"
     tools:context=".SelectDifficulty">
 
     <TextView
         android:id="@+id/difficultyLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="342dp"
+        android:layout_height="97dp"
         android:layout_marginStart="174dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="288dp"
         android:layout_marginEnd="174dp"
         android:text="Easy"
-        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -13,6 +13,7 @@ public class SelectPlayType extends AppCompatActivity implements View.OnClickLis
     static ToggleButton toggleButton;
     Button pvpButton;
     Button pvcButton;
+    boolean isGoingToBackground = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +44,29 @@ public class SelectPlayType extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         startService(new Intent(this, MusicService.class));
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        // User has left the app
+        //isGoingToBackground = true;
+    }
+
+    public void onBackPressed() {
+        if (isTaskRoot())
+            startService(new Intent(this, MusicService.class));
+        else
+            super.onBackPressed();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Check if the app is going to the background
+        if (isGoingToBackground) {
+            // App is going to the background (home button or recent apps button)
+            startService(new Intent(this, MusicService.class));
+        }
     }
 }
